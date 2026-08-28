@@ -104,6 +104,6 @@ streamlit run app.py
 ```
 ---
 
-### 📸 Teşekkür & Telif Bilgisi
+### Teşekkür & Telif Bilgisi
 
 * **Arka Plan Görseli:** [Unsplash](https://unsplash.com/) [Giammarco Boscaro](https://unsplash.com/@giammarco) 
