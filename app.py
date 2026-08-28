@@ -482,12 +482,22 @@ def add_bg_and_styles(image_file):
         unsafe_allow_html=True
     )
 
-add_bg_and_styles("assets\giammarco-boscaro-zeH-ljawHtg-unsplash.jpg")
+add_bg_and_styles("assets/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg")
 
 FOLLOWUP_FIELD_KEYWORDS = {
-    "author": ("author", "who wrote", "writer"),
-    "page": ("page", "pages", "how long"),
-    "genre": ("genre", "category", "type", "kind"),
+    "author": (
+        "author", "who wrote", "writer",
+        "yazar", "yazarı", "yazari", "yazarı kim", "yazari kim",
+        "kim yazdı", "kim yazmış", "kim yazmis", "kimin eseri",
+    ),
+    "page": (
+        "page", "pages", "how long",
+        "sayfa", "sayfa sayısı", "sayfa sayisi", "kaç sayfa", "kac sayfa",
+    ),
+    "genre": (
+        "genre", "category", "type", "kind",
+        "tür", "tur", "türü", "turu", "hangi tür", "hangi tur", "kategori",
+    ),
 }
 
 def detect_followup_field(query: str):
@@ -498,15 +508,15 @@ def detect_followup_field(query: str):
     return None
 
 def answer_from_book_field(book: dict, field: str) -> str:
-    title = book.get('title_tr', book.get('title_en', 'Unknown Title'))
+    title = book.get('title_tr', book.get('title_en', 'Bilinmeyen Başlık'))
     if field == "author":
-        return f"The author of **{title}** is **{book['author']}**."
+        return f"**{title}** kitabının yazarı **{book['author']}**."
     if field == "page":
-        return f"**{title}** has **{book['page']}** pages."
+        return f"**{title}** toplam **{book['page']}** sayfa."
     if field == "genre":
         return (
-            f"**{title}** belongs to the **{book['genre']}** genre "
-            f"(broad category: {book.get('broad_genre', 'N/A')})."
+            f"**{title}** kitabı **{book['genre']}** türünde "
+            f"(genel kategori: {book.get('broad_genre', 'belirtilmemiş')})."
         )
     return ""
 
