@@ -482,7 +482,7 @@ def add_bg_and_styles(image_file):
         unsafe_allow_html=True
     )
 
-add_bg_and_styles("giammarco-boscaro-zeH-ljawHtg-unsplash.jpg")
+add_bg_and_styles("assets\giammarco-boscaro-zeH-ljawHtg-unsplash.jpg")
 
 FOLLOWUP_FIELD_KEYWORDS = {
     "author": ("author", "who wrote", "writer"),
